@@ -22,12 +22,17 @@ function getTimeRemaining(endtime) {
 
 function initializeClock(id, endtime){
   let countdown = document.getElementById(id);
+  let daysRem = countdown.querySelector('.days');
+  let hoursRem = countdown.querySelector('.hours');
+  let minutesRem = countdown.querySelector('.minutes');
+  let secondsRem = countdown.querySelector('.seconds');
+
   function updateClock() {
 	  let remaining = getTimeRemaining(endtime);
-	  countdown.innerHTML = 	'Days: ' + remaining.days + '<br>' +
-							  	'Hours: '+ remaining.hours + '<br>' +
-							  	'Minutes: ' + remaining.minutes + '<br>' +
-							  	'Seconds: ' + remaining.seconds;
+	  daysRem.innerHTML = remaining.days;
+	  hoursRem.innerHTML = remaining.hours;
+	  minutesRem.innerHTML = remaining.minutes;
+	  secondsRem.innerHTML = remaining.seconds;
 	  if(remaining.total <= 0){
 		  clearInterval(timeinterval);
 	  }
